@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>表单整体设计</title>
+</head>
+
+<body>
+    <form action="https://www.baidu.com/s">
+        <h1 align="center">表单标题</h1>
+        <p style="font-style:oblique;">这是一个表单示例。</p>
+
+        <input type="text" name="wd" placeholder="请输入搜索内容" required maxlength="10">
+        <button type="submit">搜索</button><br>
+
+        <label for="username">用户名:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password" >密码:</label>
+        <input type="password" id="password" name="password"  maxlength="6" disabled><br>
+
+
+        <h2>文本域</h2>
+        <textarea rows="4" cols="50" placeholder="请输入内容" style="font-size: 20px;"></textarea><br>
+        <button type="submit">提交反馈</button>
+
+        <h2>单选框</h2>
+        <label for="option1" style="font-size: large; font-style:oblique;">选项:</label>
+        <input type="radio" name="gender" value="男" checked>男
+        <input type="radio" name="gender" value="女">女<br>
+
+        <h2>复选框</h2>
+        <label for="hobby1">爱好:</label>
+        <input type="checkbox" name="hobby" value="阅读">阅读
+        <input type="checkbox" name="hobby" value="运动">运动
+        <input type="checkbox" name="hobby" value="旅行" disabled>旅行<br>   
+
+        <h2>提交按钮</h2>
+        <input type="submit" style="background-color: rgb(89, 222, 107); border-radius: 10px; width: 100px; height: 50px; font-size: 20px;" value="登陆">
+        <input type="submit" style="background-color: rgb(148, 186, 224); border-radius: 10px; width: 100px; height: 50px; font-size: 20px;" value="注册">
+
+        <h2>重置按钮</h2>
+        <input type="reset" style="background-color: rgb(233, 197, 147); border-radius: 20px; width: 100px; height: 50px; font-size: 20px;" value="重置">
+        
+        <h2>普通按钮</h2>
+        <button type="button" style="background-color: rgb(255, 153, 153); border-radius: 20px; width: 100px; height: 50px; font-size: 20px;" onclick="alert('按钮被点击了！')">点击我</button>
+
+        <h2>下拉选项</h2>
+        <select name="options" style="width: 150px; height: 30px;">
+            <option value="option1">江苏省</option>
+            <option value="option2" selected>浙江省</option>
+            <option value="option3">安徽省</option>
+        </select>
+    </form>
+</body>
+
+</html>

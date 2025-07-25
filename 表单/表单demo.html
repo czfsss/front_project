@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>表单案例</title>
+</head>
+<body>
+    <form>
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name" style="border-radius: 5px;" required><br>
+        <label for="age">年龄:</label>
+        <input type="number" id="age" name="age" style="border-radius: 5px;" min="1" max="120 required"><br>
+        <label for="sex">性别:</label>
+        <input type="radio" value="男" name="sex">男
+        <input type="radio" value="女" name="sex">女<br> 
+        <label for="job">职业:</label>
+        <select id="job" name="job" style="border-radius: 5px;" width="200px;">
+            <option value="teacher">教师</option>
+            <option value="engineer">工程师</option>
+            <option value="doctor">医生</option>
+        </select>
+        <br>
+        <label for="bio">自我介绍:</label><br>
+        <textarea id="bio" name="bio" style="border-radius: 5px;" rows="4" cols="50" placeholder="请输入自我介绍"></textarea>
+        <br>
+        <button type="submit" style="border-radius: 5px; background-color: #4CAF50; color: white; width:50px;height:30px">提交</button>
+        <button type="reset" style="border-radius: 5px; background-color: #f44336; color: white;width:50px;height:30px">重置</button>
+    </form>
+</body>
+</html>

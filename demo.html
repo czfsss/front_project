@@ -1,10 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 页面标题，显示在浏览器标签页上 -->
     <title>你好</title>
 </head>
 <body>
-    
+    <!-- 主标题 -->
+    <h1>你好！</h1>
+    <!-- 副标题 -->
+    <h2>你好啊！</h2>
+    <!-- 三级标题 -->
+    <h3>你好哇！</h3>
+    <!-- 四级标题 -->
+    <h4>欢迎！</h4>
+    <!-- 五级标题 -->
+    <h5>欢迎你！</h5>
+    <!-- 六级标题 -->
+    <h6>你好陌生人！</h6>
+    <!-- 普通文本 -->
+    这是一个普通文字<br> 
+    这是一个普通文字<br>
+    这是一个普通文字<br>
+    这是一个普通文字<br>
+    <!-- 段落 -->
+    <p>这是段落</p>   
+    <p style="color: rgb(44, 137, 122); font-size: 20px;">This is a styled paragraph.</p>
+    <!-- 水平分隔线 -->
+    <hr>
+    <!-- 动态内容占位符 -->
+    <p>我的名字是 ${name}</p>
+    <abbr title="这是一个信息详情">信息</abbr><br>
+    <img src="image.jpg" alt="图片显示错误"><br>
+    <hr>
+    <input type="text" placeholder="输入你的名字">
+    <input type="text" value="6">
+    <input type="text" disabled>
+    <input type="checkbox" checked>
+    <a href="https://www.example.com" target="_blank">Open in new tab</a>
+    <input type="text" required>
+    <video src="video.mp4" autoplay></video>
+
+    <div data-user-id="12345" data-role="admin">User Info</div>
+    <button onclick="alert('Button clicked!')",style="border-radius: 20px;">Click Me</button>
+    <div onmouseover="this.style.backgroundColor='yellow'">Hover over me</div>
+    <input type="text" onchange="alert('Value changed!')">
+    <p style="color:blue;margin-left:20px;">这是一个段落。</p>
+    <table border="1" style="width: 50%; border-collapse: collapse;" cellpadding="10" align="center">
+        <caption style="font-style:oblique;">这是一个表格标题</caption>
+        <thead>
+            <tr>
+                <th>列标题1</th>
+                <th>列标题2</th>
+                <th>列标题3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr align="center">
+                <td>行1，列1</td>
+                <td>行1，列2</td>
+                <td>行1，列3</td>
+            </tr>
+            <tr align="center">
+                <td>行2，列1</td>
+                <td>行2，列2</td>
+                <td>行2，列3</td>
+            </tr>
+        </tbody>
+        </table>
+    <!-- 预格式文本 -->
+    <pre>
+        这是一个预格式文本
+        你好    娇嗲
+        巨大的
+        大
+    </pre>
+    <div>
+        <!-- 链接 -->
+        <a href="https://www.baidu.com",target="_self">百度一下</a>
+    </div>
 </body>
 </html>
+
+
+
+echo 'export OPENAI_API_KEY="sk-419d8df7cb7d4aca85f48c1c06dd7273"' >> ~/.bashrc
+echo 'export OPENAI_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"' >> ~/.bashrc
+echo 'export OPENAI_MODEL="qwen3-coder-480b-a35b-instruct"' >> ~/.bashrc
+
+
+export OPENAI_API_KEY="sk-419d8df7cb7d4aca85f48c1c06dd7273"
+export OPENAI_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
+export OPENAI_MODEL="qwen3-coder-480b-a35b-instruct"

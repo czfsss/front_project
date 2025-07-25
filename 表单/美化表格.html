@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单与表格示例</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#64748B',
+                        success: '#10B981',
+                        danger: '#EF4444',
+                        warning: '#F59E0B',
+                        info: '#06B6D4',
+                        light: '#F8FAFC',
+                        dark: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .form-input-focus {
+                @apply focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-200;
+            }
+            .btn-effect {
+                @apply transform hover:scale-105 active:scale-95 transition-all duration-200;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- 页面标题 -->
+        <div class="text-center mb-10">
+            <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-gray-800 mb-2">用户信息管理</h1>
+            <p class="text-gray-600 text-lg">填写表单添加用户信息，已添加的信息将显示在下方表格中</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- 用户表单卡片 -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-xl">
+                    <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fa fa-user-plus text-primary mr-2"></i> 添加用户信息
+                    </h2>
+                    <form id="userForm" class="space-y-5">
+                        <div class="space-y-2">
+                            <label for="name" class="block text-sm font-medium text-gray-700">姓名</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg form-input-focus outline-none"
+                                    placeholder="请输入姓名">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="age" class="block text-sm font-medium text-gray-700">年龄</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                                <input type="number" id="age" name="age" min="1" max="120" required
+                                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg form-input-focus outline-none"
+                                    placeholder="请输入年龄">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-gray-700">性别</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="radio" name="sex" value="男" class="form-radio text-primary h-5 w-5" checked>
+                                    <span class="ml-2 text-gray-700">男</span>
+                                </label>
+                                <label class="inline-flex items-center cursor-pointer">
+                                    <input type="radio" name="sex" value="女" class="form-radio text-primary h-5 w-5">
+                                    <span class="ml-2 text-gray-700">女</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="job" class="block text-sm font-medium text-gray-700">职业</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                                    <i class="fa fa-briefcase"></i>
+                                </span>
+                                <select id="job" name="job" required
+                                    class="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg form-input-focus outline-none appearance-none bg-white">
+                                    <option value="" disabled selected>请选择职业</option>
+                                    <option value="teacher">教师</option>
+                                    <option value="engineer">工程师</option>
+                                    <option value="doctor">医生</option>
+                                    <option value="student">学生</option>
+                                    <option value="other">其他</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                                    <i class="fa fa-chevron-down text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="bio" class="block text-sm font-medium text-gray-700">自我介绍</label>
+                            <div class="relative">
+                                <span class="absolute top-3 left-0 flex items-center pl-3 text-gray-500">
+                                    <i class="fa fa-comment"></i>
+                                </span>
+                                <textarea id="bio" name="bio" rows="3"
+                                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg form-input-focus outline-none resize-none"
+                                    placeholder="请输入自我介绍"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="flex space-x-4 pt-2">
+                            <button type="submit"
+                                class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg shadow-md btn-effect flex items-center justify-center">
+                                <i class="fa fa-check mr-2"></i> 提交
+                            </button>
+                            <button type="reset"
+                                class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg shadow-md btn-effect flex items-center justify-center">
+                                <i class="fa fa-refresh mr-2"></i> 重置
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 用户表格卡片 -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl">
+                    <div class="p-6 border-b border-gray-200">
+                        <h2 class="text-xl font-bold text-gray-800 flex items-center">
+                            <i class="fa fa-table text-primary mr-2"></i> 用户信息列表
+                        </h2>
+                        <p class="text-gray-600 mt-1">已添加 <span id="userCount" class="font-semibold text-primary">0</span> 位用户</p>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">姓名</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">年龄</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">性别</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">职业</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userTableBody" class="bg-white divide-y divide-gray-200">
+                                <!-- 表格内容将通过JavaScript动态添加 -->
+                                <tr class="text-center">
+                                    <td colspan="6" class="px-6 py-12 text-gray-500">
+                                        <div class="flex flex-col items-center">
+                                            <i class="fa fa-folder-open-o text-4xl mb-3 text-gray-300"></i>
+                                            <p>暂无用户数据</p>
+                                            <p class="text-sm mt-1">请在左侧表单添加用户信息</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="emptyState" class="p-6 text-center text-gray-500 hidden">
+                        <i class="fa fa-folder-open-o text-4xl mb-3"></i>
+                        <p>暂无用户数据</p>
+                        <p class="text-sm mt-1">请在左侧表单添加用户信息</p>
+                    </div>
+                </div>
+
+                <!-- 用户详情模态框 -->
+                <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+                    <div class="bg-white rounded-xl shadow-xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0" id="modalContent">
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-bold text-gray-800">用户详情</h3>
+                                <button id="closeModal" class="text-gray-400 hover:text-gray-600">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </div>
+                            <div id="detailContent" class="space-y-4">
+                                <!-- 详情内容将通过JavaScript动态添加 -->
+                            </div>
+                            <div class="mt-6">
+                                <button id="closeDetailBtn" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg shadow-md btn-effect">
+                                    关闭
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 职业映射表，用于显示中文职业名称
+        const jobMap = {
+            'teacher': '教师',
+            'engineer': '工程师',
+            'doctor': '医生',
+            'student': '学生',
+            'other': '其他'
+        };
+
+        // 用户数据数组
+        let users = [];
+
+        // DOM元素
+        const userForm = document.getElementById('userForm');
+        const userTableBody = document.getElementById('userTableBody');
+        const userCount = document.getElementById('userCount');
+        const emptyState = document.getElementById('emptyState');
+        const detailModal = document.getElementById('detailModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeModal = document.getElementById('closeModal');
+        const closeDetailBtn = document.getElementById('closeDetailBtn');
+        const detailContent = document.getElementById('detailContent');
+
+        // 初始化
+        function init() {
+            // 从本地存储加载数据
+            loadUsers();
+            // 更新表格
+            updateTable();
+            
+            // 表单提交事件
+            userForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                addUser();
+            });
+            
+            // 关闭模态框事件
+            closeModal.addEventListener('click', closeDetailModal);
+            closeDetailBtn.addEventListener('click', closeDetailModal);
+            detailModal.addEventListener('click', function(e) {
+                if (e.target === detailModal) {
+                    closeDetailModal();
+                }
+            });
+        }
+
+        // 从本地存储加载用户数据
+        function loadUsers() {
+            const savedUsers = localStorage.getItem('users');
+            if (savedUsers) {
+                users = JSON.parse(savedUsers);
+            }
+        }
+
+        // 保存用户数据到本地存储
+        function saveUsers() {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        // 添加用户
+        function addUser() {
+            const name = document.getElementById('name').value;
+            const age = parseInt(document.getElementById('age').value);
+            const sex = document.querySelector('input[name="sex"]:checked').value;
+            const job = document.getElementById('job').value;
+            const bio = document.getElementById('bio').value;
+            
+            // 创建新用户对象
+            const newUser = {
+                id: Date.now(), // 使用时间戳作为唯一ID
+                name,
+                age,
+                sex,
+                job,
+                bio
+            };
+            
+            // 添加到用户数组
+            users.unshift(newUser); // 添加到数组开头，最新的用户显示在最前面
+            
+            // 保存到本地存储
+            saveUsers();
+            
+            // 更新表格
+            updateTable();
+            
+            // 重置表单
+            userForm.reset();
+            
+            // 显示成功提示
+            showNotification('用户添加成功', 'success');
+        }
+
+        // 更新表格
+        function updateTable() {
+            // 清空表格内容
+            userTableBody.innerHTML = '';
+            
+            // 更新用户计数
+            userCount.textContent = users.length;
+            
+            // 如果没有用户，显示空状态
+            if (users.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            
+            // 隐藏空状态
+            emptyState.classList.add('hidden');
+            
+            // 添加用户行
+            users.forEach((user, index) => {
+                const row = document.createElement('tr');
+                row.className = index % 2 === 0 ? 'bg-white hover:bg-gray-50 transition-colors' : 'bg-gray-50 hover:bg-gray-100 transition-colors';
+                
+                // 获取职业的中文名称
+                const jobName = jobMap[user.job] || user.job;
+                
+                // 设置行内容
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${user.id}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10 bg-primary/10 rounded-full flex items-center justify-center">
+                                <span class="text-primary font-medium">${user.name.charAt(0)}</span>
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-sm font-medium text-gray-900">${user.name}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${user.age}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${user.sex}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                            ${jobName}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button class="text-indigo-600 hover:text-indigo-900 mr-3 view-btn" data-id="${user.id}">
+                            <i class="fa fa-eye"></i> 查看
+                        </button>
+                        <button class="text-red-600 hover:text-red-900 delete-btn" data-id="${user.id}">
+                            <i class="fa fa-trash"></i> 删除
+                        </button>
+                    </td>
+                `;
+                
+                // 添加到表格
+                userTableBody.appendChild(row);
+            });
+            
+            // 添加事件监听器
+            addEventListeners();
+        }
+
+        // 添加事件监听器
+        function addEventListeners() {
+            // 删除按钮事件
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    deleteUser(id);
+                });
+            });
+            
+            // 查看按钮事件
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    showUserDetail(id);
+                });
+            });
+        }
+
+        // 删除用户
+        function deleteUser(id) {
+            if (confirm('确定要删除此用户吗？')) {
+                // 过滤掉要删除的用户
+                users = users.filter(user => user.id !== id);
+                
+                // 保存到本地存储
+                saveUsers();
+                
+                // 更新表格
+                updateTable();
+                
+                // 显示删除成功提示
+                showNotification('用户删除成功', 'success');
+            }
+        }
+
+        // 显示用户详情
+        function showUserDetail(id) {
+            // 查找用户
+            const user = users.find(user => user.id === id);
+            
+            if (!user) return;
+            
+            // 获取职业的中文名称
+            const jobName = jobMap[user.job] || user.job;
+            
+            // 设置详情内容
+            detailContent.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <div class="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center">
+                        <span class="text-primary text-2xl font-medium">${user.name.charAt(0)}</span>
+                    </div>
+                    <div class="ml-4">
+                        <div class="text-xl font-bold text-gray-900">${user.name}</div>
+                        <div class="text-sm text-gray-500">ID: ${user.id}</div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <p class="text-sm text-gray-500">年龄</p>
+                        <p class="text-base font-medium text-gray-900">${user.age} 岁</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">性别</p>
+                        <p class="text-base font-medium text-gray-900">${user.sex}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">职业</p>
+                        <p class="text-base font-medium text-gray-900">${jobName}</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <p class="text-sm text-gray-500">自我介绍</p>
+                    <p class="text-base text-gray-900 mt-1">${user.bio || '未填写'}</p>
+                </div>
+            `;
+            
+            // 显示模态框
+            detailModal.classList.remove('hidden');
+            
+            // 添加动画效果
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        // 关闭详情模态框
+        function closeDetailModal() {
+            // 添加关闭动画
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            // 隐藏模态框
+            setTimeout(() => {
+                detailModal.classList.add('hidden');
+            }, 300);
+        }
+
+        // 显示通知
+        function showNotification(message, type = 'info') {
+            // 创建通知元素
+            const notification = document.createElement('div');
+            
+            // 设置样式和类
+            let bgColor, textColor, icon;
+            switch(type) {
+                case 'success':
+                    bgColor = 'bg-green-50';
+                    textColor = 'text-green-800';
+                    icon = 'fa-check-circle';
+                    break;
+                case 'error':
+                    bgColor = 'bg-red-50';
+                    textColor = 'text-red-800';
+                    icon = 'fa-exclamation-circle';
+                    break;
+                case 'warning':
+                    bgColor = 'bg-yellow-50';
+                    textColor = 'text-yellow-800';
+                    icon = 'fa-exclamation-triangle';
+                    break;
+                default:
+                    bgColor = 'bg-blue-50';
+                    textColor = 'text-blue-800';
+                    icon = 'fa-info-circle';
+            }
+            
+            notification.className = `fixed top-4 right-4 ${bgColor} ${textColor} border-l-4 border-green-400 p-4 rounded shadow-lg z-50 transform transition-all duration-500 translate-x-full opacity-0 flex items-center`;
+            
+            // 设置内容
+            notification.innerHTML = `
+                <i class="fa ${icon} mr-3 text-lg"></i>
+                <p>${message}</p>
+            `;
+            
+            // 添加到页面
+            document.body.appendChild(notification);
+            
+            // 显示通知
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full', 'opacity-0');
+            }, 10);
+            
+            // 自动关闭
+            setTimeout(() => {
+                notification.classList.add('translate-x-full', 'opacity-0');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 3000);
+        }
+
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
+    
