@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            /* 相对定位 */
+            position: relative;
+            left: 100px;
+            top: 100px;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- 用户询问相对定位(position: relative)和margin的区别。我需要先查看完整的文件内容，了解当前的代码结构，然后详细解释这两者的区别。这是一个CSS概念问题，不需要修改代码，只需要提供详细的解释和对比。
+根据你的代码，我来详细解释 position: relative 和 margin 的区别：
+
+## 基本概念区别
+### position: relative（相对定位）
+```
+div {
+  position: relative;
+  left: 100px;
+  top: 100px;
+}
+```
+特点 ：
+
+- 相对于自身原始位置 进行偏移
+- 不会影响其他元素 的位置，其他元素仍然认为它在原来的位置
+- 原始位置保留 ：元素移动后，原来的空间仍然被占用
+- 可以使用top/right/bottom/left 进行精确控制
+- 脱离正常文档流 的定位上下文，但仍在文档流中
+### margin（外边距）
+```
+div {
+  margin-left: 100px;
+  margin-top: 100px;
+  /* 或 */
+  margin: 100px 0 0 100px;
+}
+```
+特点 ：
+
+- 相对于相邻元素 进行偏移
+- 会影响其他元素 的位置，会推动其他元素
+- 原始位置不保留 ：元素移动后，原来的空间被释放
+- 只能使用margin-top/right/bottom/left 控制
+- 完全在正常文档流 中 -->
+    <div></div>
+</body>
+</html>

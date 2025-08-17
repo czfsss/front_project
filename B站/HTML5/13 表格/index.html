@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--表格有以下标签：
+    table：定义表格
+    tr：定义表格行,全称table row
+    th：定义表格头,全称table header
+    td：定义表格单元格,全称table data
+    caption：定义表格标题
+-->
+    <!--表格实现的快捷键：table>tr*3>td*3{表格单元格想要呈现的内容}-->
+    <!--表格实现的快捷键：table>caption{表格标题}>tr*3>th*3{表格头想要呈现的内容}>tr*3>td*3{表格单元格想要呈现的内容}-->
+    <!--表格的属性：
+    border：定义表格边框的宽度
+    cellspacing：定义单元格之间的间距
+    cellpadding：定义单元格内容与边框的间距
+    width：定义表格的宽度
+    height：定义表格的高度
+    align：定义表格的对齐方式
+    bgColor：定义表格的背景颜色
+    borderColor：定义表格边框的颜色
+-->
+
+
+    <table border="1" cellspacing="0" cellpadding="10" width="500" height="300" align="center" bgColor="#f0f0f0" borderColor="#000000">
+
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>18</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>19</td>
+            <td>女</td>
+        </tr>
+        <tr>
+            <td>王五</td>
+            <td>20</td>
+            <td>男</td>
+        </tr>
+    </table>
+
+    <table>
+        <caption>表格标题
+            <tr>
+                <th>表格头想要呈现的内容</th>
+                <th>表格头想要呈现的内容</th>
+                <th>表格头想要呈现的内容</th>
+            </tr>
+        </caption>
+        <tr>
+            <td>表格单元格想要呈现的内容</td>
+            <td>表格单元格想要呈现的内容</td>
+            <td>表格单元格想要呈现的内容</td>
+        </tr>
+    </table>
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--表单的属性：
+    action：定义表单数据提交的地址
+    method：定义表单数据提交的方式
+    get：将表单数据提交到地址栏
+    post：将表单数据提交到表单
+    注意：
+    1.如果不定义action属性，表单数据默认提交到当前页面
+    2.如果不定义method属性，表单数据默认提交到get方式
+    3.如果定义了get方式，表单数据会显示在地址栏
+    4.如果定义了post方式，表单数据不会显示在地址栏
+-->
+
+    <div style="text-align: center;">
+        <img src="PixPin_2025-08-17_16-06-51.png" alt="搜索图标" title="搜索">
+    </div>
+
+    <div style="text-align: center;">
+
+    <form action="https://www.baidu.com/s">
+        <input type="text" name="wd" placeholder="请输入搜索内容" style="width: 400px; height: 45px; border-radius: 10px;">
+        <button type="submit" style="width: 100px; height: 50px; border-radius: 10px; background-color: #007bff; color: #fff;">百度一下</button>
+    </form>
+    </div>
+</body>
+</html>
