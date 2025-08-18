@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: calc(50vh - 100px);
+            border-radius: 10px;
+            /* 阴影  四个属性含义：水平偏移  垂直偏移  模糊半径  阴影颜色 */
+            /* 水平偏移：正值向右偏移，负值向左偏移 */
+            /* 垂直偏移：正值向下偏移，负值向上偏移 */  
+            /* 模糊半径：正值模糊，负值不模糊 */
+            /* 阴影颜色： rgba()  前三个值是  颜色  最后一个值是  透明度 */
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

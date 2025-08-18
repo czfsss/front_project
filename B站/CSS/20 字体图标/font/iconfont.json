@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5387650",
+      "name": "个人头像",
+      "font_class": "gerentouxiang",
+      "unicode": "eb24",
+      "unicode_decimal": 60196
+    },
+    {
+      "icon_id": "20009141",
+      "name": "chevrondown下箭头",
+      "font_class": "chevrondownxiajiantou",
+      "unicode": "e6d5",
+      "unicode_decimal": 59093
+    }
+  ]
+}

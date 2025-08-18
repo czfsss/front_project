@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            /* 圆角  当有四个值时:第一个值是  左上角  第二个值是  右上角  第三个值是  右下角  第四个值是  左下角 */
+            /* 圆角  当有三个值时:第一个值是  左上角  第二个值是  右上角和左下角  第三个值是  右下角 */
+            /* 圆角  当有两个值时:第一个值是  左上角和右下角  第二个值是  右上角和左下角 */
+            border-radius: 10px;
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            margin: 0 auto; /* 让容器水平居中 */
+
+            margin-top: calc(50vh - 100px); /* 垂直居中：视口高度50%减去容器高度一半 */
+        }
+        button{
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    <button>按钮</button>
+
+    </div>
+</body>
+</html>

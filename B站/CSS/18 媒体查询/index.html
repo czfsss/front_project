@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+
+        /* 手机屏幕 */
+        @media screen and (max-width: 768px) {
+            .box {
+                background-color: rgb(108, 14, 78);
+            }
+        }
+
+        /* 平板屏幕 */
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+
+            .box {
+                background-color: rgb(63, 230, 177);
+            }
+        }
+        /* 电脑屏幕 */
+        @media screen and (min-width: 1024px) {
+            .box {
+                background-color: rgb(4, 0, 6);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
