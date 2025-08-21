@@ -4,10 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome</title>
+    <style>
+      .iframe-container {
+        width: 100%;
+        height: 100vh;
+        background-color: aqua;
+      }
+
+    </style>
   </head>
   <body>
-    <h1 align="center">Welcome to the World of Code!</h1>
 
-    <p>Hello, User! We're glad you're here.</p>
+    <!-- <div class="iframe-container">
+      <iframe
+        src="http://10.43.32.231:1129/next-search/share?shared_id=69396fa47dc511f0a50f7e3a96f4cce1&from=search&auth=c1ZDFlMTk0MjE4ZTExZjBhNmU4ZGEzOG&tenantId=8519ecb6201f11f0959fda38fab51770&visible_avatar=1&locale=zh"
+        style="width: 100%; height: 100%; min-height: 600px"
+        frameborder="0">
+</iframe>
+    </div> -->
+    <!-- <h1 align="center">Welcome to the World of Code!</h1>
+
+    <p>Hello, User! We're glad you're here.</p> -->
+
+  <form data-format="{{ format }}">
+      <label for="start-date">开始日期:</label>
+      <input type="date" name="start-date">
+      <label for="end-date">结束日期:</label>
+      <input type="date" name="end-date">
+      <label for="classgroup">班组</label>
+      <input type="text" name="classgroup">
+      <label for="classlabel">班次</label>
+      <input type="text" name="classlabel">
+      <label for="mch_name">机组</label>
+      <input type="text" name="mch_name">    
+      <button data-size="medium" data-variant="primary">提交</button>
+</form>
   </body>
 </html>
