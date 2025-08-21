@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome</title>
-    <style>
+    <!-- <style>
       .iframe-container {
         width: 100%;
         height: 100vh;
         background-color: aqua;
       }
 
-    </style>
+    </style> -->
   </head>
   <body>
 
@@ -25,19 +25,42 @@
     <!-- <h1 align="center">Welcome to the World of Code!</h1>
 
     <p>Hello, User! We're glad you're here.</p> -->
-
-  <form data-format="{{ format }}">
+  <div class="form" style="background-color: antiquewhite;border-radius: 10px; padding: 10px;">
+    <form data-format="{{ format }}">
       <label for="start-date">开始日期:</label>
       <input type="date" name="start-date">
       <label for="end-date">结束日期:</label>
       <input type="date" name="end-date">
       <label for="classgroup">班组</label>
-      <input type="text" name="classgroup">
+      <input type="select" name="classgroup" data-options='["甲班","乙班","丙班"]'>
       <label for="classlabel">班次</label>
-      <input type="text" name="classlabel">
+      <input type="select" name="classlabel" data-options='["白班","中班","晚班"]'>
       <label for="mch_name">机组</label>
-      <input type="text" name="mch_name">    
+      <input type="text" name="mch_name" placeholder="选择或输入机组名称" data-options='["白班","中班","晚班"]'>
       <button data-size="medium" data-variant="primary">提交</button>
+      </form>
+  </div>
+<form data-format="json"> // Default to text
+  <label for="username">Username:</label>
+  <input type="text" name="username" />
+  <label for="password">Password:</label>
+  <input type="password" name="password" />
+  <label for="content">Content:</label>
+  <textarea name="content"></textarea>
+  <label for="date">Date:</label>
+  <input type="date" name="date" />
+  <label for="time">Time:</label>
+  <input type="time" name="time" />
+  <label for="datetime">Datetime:</label>
+  <input type="datetime" name="datetime" />
+  <label for="select">Select:</label>
+  <input type="select" name="select" data-options='["hello","world"]' />
+  <input type="checkbox" name="check" data-tip="By checking this means you agreed" />
+  <button data-size="small" data-variant="primary">Login</button>
 </form>
+
+<a href="tel:10086">打电话</a> <br>
+<a href="sms:10010">发短信</a> <br>
+<a href="mailto:fuming@atguigu.cn">发邮件</a>
   </body>
 </html>
