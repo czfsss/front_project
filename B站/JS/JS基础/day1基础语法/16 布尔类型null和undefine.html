@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 布尔类型
+        let bool = true
+        console.log(bool)
+        // 布尔类型的转换
+        console.log(Boolean(123))
+        console.log(Boolean(""))
+        console.log(Boolean(null))
+        console.log(Boolean(undefined))
+        //null 空值  表示没有值
+        console.log(null)
+        //undefined 未定义 表示没有声明
+        console.log(undefined)
+        // null和undefined的区别
+        // null 空值  表示没有值
+        // undefined 未定义 表示没有声明
+        // 所以在判断是否为空时 要注意 不能直接用 ！！！ 来判断
+        // 要判断是否为空 要判断是否为null 或者 undefined
+        let a = null
+        if (a !== null && a !== undefined) {
+            console.log("变量a不是空")
+        } else {
+            console.log("变量a是空")
+        }
+        //typeof 运算符
+        // 可以用来判断变量的类型
+        console.log(typeof 123)
+        console.log(typeof "123")
+        console.log(typeof true)
+        console.log(typeof null)
+        console.log(typeof undefined)
+        // 注意：typeof 运算符 不能用来判断数组和对象的类型
+        console.log(typeof [1, 2, 3])
+        console.log(typeof {})
+        // 数组和对象的类型判断
+        console.log(Array.isArray([1, 2, 3]))
+        console.log(Array.isArray({}))
+
+
+
+
+
+    </script>
+</body>
+</html>

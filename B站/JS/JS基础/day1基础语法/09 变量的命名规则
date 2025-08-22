@@ -1,0 +1,25 @@
+// JavaScript 变量命名规则与规范
+
+// 一、命名规则（必须遵守）
+// 1. 变量名只能包含字母、数字、下划线(_)和美元符号($)
+// 示例：合法 - myVar, _privateVar, $specialVar
+// 2. 变量名不能以数字开头
+// 示例：非法 - 123var（错误），var123（正确）
+// 3. 变量名不能是 JavaScript 的关键字和保留字
+// 关键字示例：var, let, const, if, else, function 等
+// 保留字示例：class, enum, export, extends 等
+// 4. 变量名区分大小写
+// 示例：myVar 和 myvar 是两个不同的变量
+
+// 二、命名规范（建议遵守）
+// 1. 使用驼峰命名法（Camel Case）
+// 小驼峰：第一个单词首字母小写，后续单词首字母大写，用于变量和函数名
+// 示例：userName, getElementById
+// 大驼峰（帕斯卡命名法）：每个单词首字母都大写，用于构造函数和类名
+// 示例：Person, UserAccount
+// 2. 变量名要有描述性
+// 示例：使用 userAge 而不是 a
+// 3. 避免使用单个字符作为变量名，除非在简短的循环中
+// 示例：for (let i = 0; i < 10; i++) 中的 i 是可接受的
+// 4. 常量（使用 const 声明）通常使用全大写，单词间用下划线分隔
+// 示例：const MAX_COUNT = 100;

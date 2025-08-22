@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name=prompt('请输入姓名')
+        let age=prompt('请输入年龄')
+        let sex=prompt('请输入性别')    
+        document.write('姓名：'+name+'<br>')
+        document.write('年龄：'+age+'<br>')
+        document.write('性别：'+sex+'<br>')
+
+        // var 的不合理之处示例及说明：
+
+// 1. 变量提升问题
+console.log(varExample); // 输出 undefined，不会报错，因为 var 声明的变量会被提升到作用域顶部
+var varExample = '变量提升示例';
+
+// 2. 没有块级作用域
+if (true) {
+    var blockVar = '块级作用域示例';
+}
+console.log(blockVar); // 可以正常输出，说明 var 不受块级作用域限制
+
+// 3. 循环中的变量问题
+for (var i = 0; i < 3; i++) {
+    setTimeout(function() {
+        console.log(i); // 输出 3, 3, 3，因为 var 声明的 i 在全局作用域，循环结束后 i 的值为 3
+    }, 100);
+}
+
+// 以上问题在使用 let 声明变量时都能得到解决，let 不存在变量提升、有块级作用域且在循环中有独立作用域
+
+
+    </script>
+</body>
+</html>
