@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 隐式转换
+        let num = prompt("请输入工资：")
+        console.log(typeof num) // prompt() 输入的是字符串
+        console.log('pink' + 1) // 这里输出的是 pink1，隐式转换将数字1转换为字符串
+
+        // 除了+号，其他的减、乘、除号，都是隐式转换，会讲数字的字符串转为数字类型
+        // 任何数据和字符串相加结果都是字符串
+        // 加号也可以作为正号解析可以转换成数字型
+        console.log(2 - '1'); //输出结果为数字1
+
+        console.log(+'123'); //输出结果为数字123
+
+
+        // 显示转换,注意要严格区分大小写
+        let a = '123'
+        console.log(Number(a)) //输出结果为数字123
+
+        // 方法一
+        let num1 = prompt('请输入数字')
+        console.log(Number(num1))
+        // 方法二
+        let num2 = Number(prompt('请输入数字'))
+        console.log(num2)
+        // 方法三
+        let num3 = +prompt('请输入数字')
+        console.log(num3)
+
+        // 取整
+        console.log(parseInt('12px')) //输出结果为12
+        console.log(parseInt('12.9px')) //输出结果为12
+        console.log(parseFloat('12.5px')) //输出结果为12.5
+        
+
+        //test
+        let s=Number(prompt('请输入数字1:'))
+        let b=Number(prompt('请输入数字2:'))
+        let c=s+b
+        alert(`两数之和为:${c}`)
+        document.write(s+b) //输出结果为数字
+        console.log(s+b)
+        
+        </script>
+</body>
+
+</html>

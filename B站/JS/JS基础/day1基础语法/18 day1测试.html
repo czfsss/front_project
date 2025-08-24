@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(233, 233, 233);
+    }
+    div {
+        width: 500px;
+        height: 400px;
+        border: 1px solid rgb(205, 234, 235);
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px rgba(13, 13, 14, 0.2);
+        margin: 0 auto;
+        margin-top: calc(50vh - 200px);
+        text-align: center;
+        background-color: antiquewhite;
+        transition: all 0.3s ease;
+    }
+
+    table {
+        width: auto;
+        height: auto;
+        border: 2px solid black;
+        border-collapse: collapse;
+        padding: 30%;
+        margin: 0 auto;
+        text-align: center;
+        background-color: antiquewhite;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px rgba(13, 13, 14, 0.2);
+    }
+
+    th,
+    tr,
+    td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    button {
+        width: 100px;
+        height: 30px;
+        border-radius: 7px;
+        background-color: rgb(132, 231, 155);
+        border: none;
+        margin-top: 20%;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+    }
+
+    .container:hover {
+        transform: translateX(-10px) translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        background-color: rgb(158, 222, 221);
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+        transition: all 0.3s ease;
+    }
+
+    button:active {
+        transform: translateY(3px);
+        transition: all 0.3s ease;
+    }
+</style>
+
+<body>
+    <script>
+        let name = prompt('请输入商品名称：')
+        let price = +prompt('请输入商品单价：')
+        let num = +prompt('请输入商品数量：')
+        let address = prompt('请输入收货地址：')
+        let total = price * num
+        document.write(`
+        <div class="container">
+            <h1>订单确认</h1>
+        <table>
+            <tr>
+                <th>商品名称</th>
+                <th>商品单价</th>
+                <th>商品数量</th>
+                <th>商品总价</th>
+                <th>收货地址</th>
+            </tr>
+            <tr>
+                <td>${name}</td>
+                <td>${price}</td>
+                <td>${num}</td>
+                <td>${total}</td>
+                <td>${address}</td>
+            </tr>
+        </table>
+        <button>确认</button>
+        </div>`
+        )
+
+
+    </script>
+</body>
+
+</html>
