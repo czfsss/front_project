@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 自增运算符(一元运算符) 一元运算符：只需要一个表达式就可以运算的运算符叫一元运算符
+        let a = 1
+        a++ //后增运算符
+        ++a //前增运算符
+
+        let i = 1
+        console.log(++i + 1) //结果为3
+        console.log(i++ + 1) //结果为2
+        b = i++ + 1
+        console.log(b) // 结果为3
+
+        let c = 1
+        console.log(c++ + ++c + c)//结果为7
+
+//         这是一段JavaScript代码。
+
+// “let c = 1” 声明了一个名为c的变量，并将其初始值设为1 。
+
+// “console.log(c++ + ++c + c)” 这行代码中，涉及到自增运算符的运算和结果输出。具体运算过程如下：
+//             - “c++” 是后自增运算符，先使用c当前的值参与运算，之后c的值再自增1 。这里使用c的值1参与运算，之后c的值变为2 。
+//             - “++c” 是前自增运算符，先将c的值自增1，此时c的值从2变为3 ，然后使用自增后的值3参与运算。
+//             - 最后一个“c”此时的值为3 。
+
+//             所以整个表达式“c++ + ++c + c” 就相当于 “1 + 3 + 3” ，结果为7 。最终，控制台会输出7 。 
+    </script>
+</body>
+
+</html>

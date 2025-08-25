@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = prompt('请输入账号：')
+        let b = prompt('请输入密码：')
+        if (a === 'admin' && b === '123456') {
+            alert('登录成功')
+        } else {
+            alert('登录失败')
+        }
+
+        let year = +prompt('请输入年份：')
+        if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+            alert('闰年')
+        } else {
+            alert('平年')
+
+        }
+
+    </script>
+</body>
+
+</html>
