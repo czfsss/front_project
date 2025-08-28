@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM自动取款机</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .atm-container {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 450px;
+            text-align: center;
+        }
+
+        .atm-header {
+            margin-bottom: 30px;
+        }
+
+        .atm-title {
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .balance-display {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #495057;
+        }
+
+        .menu-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .menu-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .input-section {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: #667eea;
+        }
+
+        .action-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: #218838;
+        }
+
+        .cancel-btn {
+            background: #6c757d;
+        }
+
+        .cancel-btn:hover {
+            background: #5a6268;
+        }
+
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        @media (max-width: 500px) {
+            .atm-container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .menu-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="atm-container">
+        <div class="atm-header">
+            <h1 class="atm-title">🏧 ATM自动取款机</h1>
+            <div class="balance-display">
+                <strong>当前余额：¥<span id="balance-amount">***</span></strong>
+            </div>
+        </div>
+
+        <div class="menu-buttons">
+            <button class="menu-btn" onclick="checkBalance()">💰 查询余额</button>
+            <button class="menu-btn" onclick="withdraw()">💸 取款</button>
+            <button class="menu-btn" onclick="deposit()">💴 存款</button>
+            <button class="menu-btn" onclick="exitATM()">🚪 退出</button>
+        </div>
+
+        <!-- 密码输入界面 -->
+        <div id="password-section" class="input-section">
+            <h3>请输入密码</h3>
+            <input type="password" id="password-input" class="input-field" placeholder="请输入6位密码" maxlength="6">
+            <div>
+                <button class="action-btn" onclick="verifyPassword()">确认</button>
+                <button class="action-btn cancel-btn" onclick="cancelOperation()">取消</button>
+            </div>
+        </div>
+
+        <!-- 取款界面 -->
+        <div id="withdraw-section" class="input-section">
+            <h3>请输入取款金额</h3>
+            <input type="number" id="withdraw-input" class="input-field" placeholder="请输入取款金额" min="1">
+            <div>
+                <button class="action-btn" onclick="processWithdraw()">确认取款</button>
+                <button class="action-btn cancel-btn" onclick="cancelOperation()">取消</button>
+            </div>
+        </div>
+
+        <!-- 存款界面 -->
+        <div id="deposit-section" class="input-section">
+            <h3>请输入存款金额</h3>
+            <input type="number" id="deposit-input" class="input-field" placeholder="请输入存款金额" min="1">
+            <div>
+                <button class="action-btn" onclick="processDeposit()">确认存款</button>
+                <button class="action-btn cancel-btn" onclick="cancelOperation()">取消</button>
+            </div>
+        </div>
+
+        <!-- 消息显示区域 -->
+        <div id="message-area"></div>
+    </div>
+
+    <script>
+        // 初始化余额
+        let balance = 1000;
+        const PASSWORD = "123456";
+        let passwordAttempts = 0;
+        const MAX_ATTEMPTS = 3;
+
+        // 显示消息函数
+        function showMessage(message, type = 'success') {
+            const messageArea = document.getElementById('message-area');
+            messageArea.innerHTML = `<div class="message ${type}">${message}</div>`;
+
+            // 3秒后自动清除消息
+            setTimeout(() => {
+                messageArea.innerHTML = '';
+            }, 3000);
+        }
+
+        // 隐藏所有输入区域
+        function hideAllSections() {
+            document.getElementById('password-section').style.display = 'none';
+            document.getElementById('withdraw-section').style.display = 'none';
+            document.getElementById('deposit-section').style.display = 'none';
+        }
+
+        // 更新余额显示
+        function updateBalanceDisplay(show = false) {
+            const balanceElement = document.getElementById('balance-amount');
+            balanceElement.textContent = show ? balance.toLocaleString() : '***';
+        }
+
+        // 查询余额
+        function checkBalance() {
+            hideAllSections();
+            document.getElementById('password-section').style.display = 'block';
+            document.getElementById('password-input').focus();
+            document.getElementById('password-input').setAttribute('data-action', 'balance');
+        }
+
+        // 验证密码
+        function verifyPassword() {
+            const passwordInput = document.getElementById('password-input');
+            const password = passwordInput.value;
+            const action = passwordInput.getAttribute('data-action');
+
+            if (password === PASSWORD) {
+                passwordAttempts = 0;
+                hideAllSections();
+
+                if (action === 'balance') {
+                    updateBalanceDisplay(true);
+                    showMessage(`密码正确，登录成功！您的余额为：¥${balance.toLocaleString()}`, 'success');
+                }
+
+                passwordInput.value = '';
+            } else {
+                passwordAttempts++;
+                passwordInput.value = '';
+
+                if (passwordAttempts >= MAX_ATTEMPTS) {
+                    showMessage('密码错误次数过多，账户已锁定！请联系银行处理。', 'error');
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                } else {
+                    showMessage(`密码错误！还有${MAX_ATTEMPTS - passwordAttempts}次机会`, 'error');
+                    passwordInput.focus();
+                }
+            }
+        }
+
+        // 取款
+        function withdraw() {
+            hideAllSections();
+            document.getElementById('withdraw-section').style.display = 'block';
+            document.getElementById('withdraw-input').focus();
+        }
+
+        // 处理取款
+        function processWithdraw() {
+            const withdrawInput = document.getElementById('withdraw-input');
+            const amount = parseFloat(withdrawInput.value);
+
+            if (isNaN(amount) || amount <= 0) {
+                showMessage('请输入有效的取款金额！', 'error');
+                return;
+            }
+
+            if (amount > balance) {
+                showMessage('取款金额超出余额，请重新输入！', 'error');
+                withdrawInput.value = '';
+                withdrawInput.focus();
+                return;
+            }
+
+            balance -= amount;
+            hideAllSections();
+            updateBalanceDisplay(true);
+            showMessage(`取款成功！取款金额：¥${amount.toLocaleString()}，当前余额：¥${balance.toLocaleString()}`, 'success');
+            withdrawInput.value = '';
+        }
+
+        // 存款
+        function deposit() {
+            hideAllSections();
+            document.getElementById('deposit-section').style.display = 'block';
+            document.getElementById('deposit-input').focus();
+        }
+
+        // 处理存款
+        function processDeposit() {
+            const depositInput = document.getElementById('deposit-input');
+            const amount = parseFloat(depositInput.value);
+
+            if (isNaN(amount) || amount <= 0) {
+                showMessage('请输入有效的存款金额！', 'error');
+                return;
+            }
+
+            balance += amount;
+            hideAllSections();
+            updateBalanceDisplay(true);
+            showMessage(`存款成功！存款金额：¥${amount.toLocaleString()}，当前余额：¥${balance.toLocaleString()}`, 'success');
+            depositInput.value = '';
+        }
+
+        // 取消操作
+        function cancelOperation() {
+            hideAllSections();
+            // 清空所有输入框
+            document.getElementById('password-input').value = '';
+            document.getElementById('withdraw-input').value = '';
+            document.getElementById('deposit-input').value = '';
+            showMessage('操作已取消', 'warning');
+        }
+
+        // 退出ATM
+        function exitATM() {
+            showMessage('感谢使用ATM自动取款机，再见！', 'success');
+            setTimeout(() => {
+                if (confirm('确定要退出ATM系统吗？')) {
+                    window.close();
+                }
+            }, 1000);
+        }
+
+        // 添加回车键支持
+        document.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const activeElement = document.activeElement;
+
+                if (activeElement.id === 'password-input') {
+                    verifyPassword();
+                } else if (activeElement.id === 'withdraw-input') {
+                    processWithdraw();
+                } else if (activeElement.id === 'deposit-input') {
+                    processDeposit();
+                }
+            }
+        });
+
+        // 初始化
+        updateBalanceDisplay();
+    </script>
+</body>
+
+</html>
